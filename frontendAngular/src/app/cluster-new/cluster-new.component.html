@@ -1,0 +1,36 @@
+<style>
+  h3 {text-align: center;}
+  p {text-align: center;}
+  div {text-align: center;}
+  .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+  </style>
+<h3 >NEW CLUSTER</h3>
+<br>
+<div class="cluster-new">
+
+    <form [formGroup]="clusterForm" class="login-container" (ngSubmit)="submitCluster()">
+      <h1>Name: </h1>
+        <input type="name" placeholder="name*" formControlName="name"/>
+        <ng-container *ngIf="!formControls.name.valid &&formControls.name.touched">
+          <p *ngIf="formControls.name.errors.required">
+            Name is required
+          </p>
+        </ng-container>
+        <h1>Description: </h1>
+        <input type="text" placeholder="description*" formControlName="description" />
+        <h1>reportDate: </h1>
+        <input type="text" placeholder="reportDate*" formControlName="reportDate" />
+        <p>
+          <input type="submit" value="Submit" [disabled]="clusterForm.invalid" />
+        </p>
+      </form>
+</div>
